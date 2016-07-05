@@ -3,7 +3,7 @@ clear all
 close all
 
 %% load image
-image = imread('autumn.png');
+image = imread('bokeh2.png');
 image = rgb2gray(image);
 % imshow(image);
 
@@ -24,11 +24,13 @@ for i = 1:8:(M-8)
         dct = dct2(shiftedBlock);
         quantized = round(dct ./ qY);
         
-        % For each dct component.
+        % for each dct component.
         for k = 1:8
            for m = 1:8
+               % but not DC component
                if (k~=1 && m~=1)
                    component = quantized(k,m);
+                   % count only components in [-50,50]
                    if (abs(component) < 50)
                        index = 51 + component;
                        stat(index) = stat(index) + 1;
@@ -43,6 +45,9 @@ end
 %%
 stat(51) = 0;
 range = -50:50;
+
+stat = stat / sum(stat);
+
 bar(stat)
 
 
