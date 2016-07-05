@@ -3,7 +3,7 @@ clear all
 close all
 
 %% load image
-image = imread('autumn.png');
+image = imread('loading1.png');
 image = rgb2gray(image);
 % imshow(image);
 
@@ -24,26 +24,14 @@ for i = 1:8:(M-8)
         dct = dct2(shiftedBlock);
         quantized = round(dct ./ qY);
         
-        % For each dct component.
+        % for each com
         for k = 1:8
            for m = 1:8
-               if (k~=1 && m~=1)
-                   component = quantized(k,m);
-                   if (abs(component) < 50)
-                       index = 51 + component;
-                       stat(index) = stat(index) + 1;
-                   end
-               end
+               
            end
         end
         
     end
-    i/M * 100
 end
-%%
-stat(51) = 0;
-range = -50:50;
-bar(stat)
 
-
-
+imshow(image);
