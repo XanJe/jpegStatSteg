@@ -3,7 +3,7 @@ clear all
 close all
 
 %% load image
-image = imread('bokeh2.png');
+image = imread('xxx.jpg');
 image = rgb2gray(image);
 % imshow(image);
 
