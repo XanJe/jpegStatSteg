@@ -1,2 +1,18 @@
+clc
+close
+clear all
+
+%%
 % aimed for getting a block with given statistics
-block = [0 0 0 0 0 1 1 1 
+block = [0 0 0 0 0 1 1 1 1];
+padded_block = pad_block_to_achieve_given_statistics(block, 15, 0.4);
+
+padded_block = [7 8 3 4]
+
+permutation = generate_keyed_permutation(4, 7)
+
+permuted = permute_array(padded_block, permutation);
+
+inverse_permutataion = generate_inverse_permutation(permutation)
+
+back = permute_array(padded_block, inverse_permutataion)

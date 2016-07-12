@@ -9,10 +9,12 @@ for i = 1:size
     % if found index is already in result, search for next, using
     % current direction.
     while ismember(newInd, result)
-        newInd = mod(newInd + direction, size)
+        newInd = mod(newInd + direction, size);
     end
     result = [result newInd];
     % update direction of shift
     direction = direction * -1;
+    
 end
+result = result + 1;
 end

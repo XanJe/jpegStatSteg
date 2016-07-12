@@ -1,0 +1,8 @@
+function permuted = permute_array(input, permutation)
+
+permuted = zeros(size(input));
+for i = 1:input
+    
+end
+
+end
